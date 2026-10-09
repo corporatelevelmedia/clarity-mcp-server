@@ -6,7 +6,7 @@ export const getConfigValue = (name: string, fallback?: string): string | undefi
   const argIndex = process.argv.findIndex((arg) => arg.startsWith(`--${name}`));
   if (argIndex !== -1) {
     const arg = process.argv[argIndex];
-    if (arg.includes("=")) {
+    if (arg?.includes("=")) {
       return arg.split("=")[1];
     }
     // --name value format: return next argument if it exists and isn't another flag
